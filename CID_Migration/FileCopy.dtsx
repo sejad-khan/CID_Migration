@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 4:20:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WWICDLAP052"
+  DTS:CreatorName="HQ\itsk1"
+  DTS:DTSID="{99F9C9DA-F17E-4B43-A4E0-6AF2468689F5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="FileCopy"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{0FC4DCEC-BDA4-4231-94A9-F64DB2BFD3AC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[File_Destination]"
+      DTS:CreationName="FILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{098C456A-A9C0-43AF-A27F-5EC97CC9C24E}"
+      DTS:ObjectName="File_Destination">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::CID_DEV_PATH]+ @[User::strCID_MDB_Name]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\hq.river-island.com\ShareArea\IT\Shared\MOBA\CID_Test\DB\CID_AP.MDB" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[File_Source]"
+      DTS:CreationName="FILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{981D8F20-ABEE-41AB-8996-5D9FF53A0CA1}"
+      DTS:ObjectName="File_Source">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::CID_PRD_PATH] +  @[User::strCID_MDB_Name]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\finserver\Data\FPM\CID\DB\CID_AP.MDB" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85A05493-0E14-48F9-A0E9-EF50DD3FC767}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{369FF725-B547-4337-AAE0-5ADAE66E46CB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="objCID_MDB">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D735AC1F-DE55-4CD8-A8F4-69C8BD7C3782}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCID_MDB_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">CID_AP.MDB</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_Load_MDB_List"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BE09CC25-FEAA-47DC-B13D-0239C464CEA8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_Load_MDB_List"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="olesrc_tbl_CID_MDB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_CID_MDB]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ID,DB_NAME FROM dbo.tbl_CID_MDB WHERE Copied IS NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:invalid"
+                  connectionManagerRefId="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[DB_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].ExternalColumns[DB_NAME]"
+                      length="31"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[DB_NAME]"
+                      name="DB_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].ExternalColumns[DB_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      name="DB_NAME" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[DB_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[DB_NAME]"
+                      name="DB_NAME" />
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Load_MDB_List\rst_CID_MDB"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="rst_CID_MDB">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::objCID_MDB</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\df_Load_MDB_List\rst_CID_MDB.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Load_MDB_List\rst_CID_MDB.Inputs[Recordset Destination Input].Columns[DB_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="31"
+                      cachedName="DB_NAME"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[DB_NAME]" />
+                    <inputColumn
+                      refId="Package\df_Load_MDB_List\rst_CID_MDB.Inputs[Recordset Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_Load_MDB_List.Paths[OLE DB Source Output]"
+              endId="Package\df_Load_MDB_List\rst_CID_MDB.Inputs[Recordset Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach CID MDB"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{D4CC06E3-A4FF-4FBC-9AEF-501B091C63C8}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach CID MDB">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{BD464063-9864-4C73-ACC7-4223C8D55F76}"
+        DTS:ObjectName="{BD464063-9864-4C73-ACC7-4223C8D55F76}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::objCID_MDB" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach CID MDB\Copy MDB"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{BF183125-EBAD-4A65-9ED7-71E2A7F86798}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy MDB"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="{981D8F20-ABEE-41AB-8996-5D9FF53A0CA1}"
+              TaskDestinationPath="{098C456A-A9C0-43AF-A27F-5EC97CC9C24E}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach CID MDB\sql_upd_Status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5FB0F997-3F71-4CC4-ADC1-E87AC0F080A5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="sql_upd_Status"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+              SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Copied = GETDATE(), Imported = NULL WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="User::intID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach CID MDB.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{47F1916E-CA60-40E8-80A5-3091396A86E2}"
+          DTS:From="Package\Foreach CID MDB\Copy MDB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach CID MDB\sql_upd_Status" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{5291721A-0E10-4EF2-A58A-5904240D8AB5}"
+          DTS:ObjectName="{5291721A-0E10-4EF2-A58A-5904240D8AB5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::strCID_MDB_Name" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D1EDB4FD-FB59-456C-8B82-D6201809C815}"
+          DTS:ObjectName="{D1EDB4FD-FB59-456C-8B82-D6201809C815}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::intID" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{389665FE-89CD-49FD-A72D-62BB38DB10D4}"
+      DTS:From="Package\df_Load_MDB_List"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach CID MDB" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\df_Load_MDB_List"
+          TopLeft="140.666661077076,45.7600003636678" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Foreach CID MDB\Copy MDB"
+          TopLeft="60.6666496329845,30.2400013720194" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach CID MDB\sql_upd_Status"
+          TopLeft="51.9999936421715,104.800002231598" />
+        <EdgeLayout
+          Id="Package\Foreach CID MDB.PrecedenceConstraints[Constraint]"
+          TopLeft="126.133321637578,71.8400013720194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.9600008595785"
+              Start="0,0"
+              End="0,25.4600008595785">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4600008595785" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="282.4,201.6"
+          Size="282.4,244.8"
+          Id="Package\Foreach CID MDB"
+          TopLeft="107.999995708466,133.120001057943" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="223.866661077076,87.3600003636678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.3333346313904,45.7600006942752"
+              Start="0,0"
+              End="25.3333346313904,38.2600006942752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8800003471376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8800003471376"
+                    Point2="0,22.8800003471376"
+                    Point3="4,22.8800003471376" />
+                  <mssgle:LineSegment
+                    End="21.3333346313904,22.8800003471376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.3333346313904,22.8800003471376"
+                    Point2="25.3333346313904,22.8800003471376"
+                    Point3="25.3333346313904,26.8800003471376" />
+                  <mssgle:LineSegment
+                    End="25.3333346313904,38.2600006942752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\df_Load_MDB_List">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB"
+          TopLeft="144.66666091813,83.8933340000577" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\df_Load_MDB_List\rst_CID_MDB"
+          TopLeft="185.999992609024,207.306668314192" />
+        <EdgeLayout
+          Id="Package\df_Load_MDB_List.Paths[OLE DB Source Output]"
+          TopLeft="232.26666091813,125.493334000058">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.9333316908944,81.8133343141344"
+              Start="0,0"
+              End="24.9333316908944,74.3133343141344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9066671570672" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.9066671570672"
+                    Point2="0,40.9066671570672"
+                    Point3="4,40.9066671570672" />
+                  <mssgle:LineSegment
+                    End="20.9333316908944,40.9066671570672" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.9333316908944,40.9066671570672"
+                    Point2="24.9333316908944,40.9066671570672"
+                    Point3="24.9333316908944,44.9066671570672" />
+                  <mssgle:LineSegment
+                    End="24.9333316908944,74.3133343141344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
