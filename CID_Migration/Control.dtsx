@@ -7,16 +7,361 @@
   DTS:CreatorName="HQ\itsk1"
   DTS:DTSID="{A84A54B9-2032-40F0-903B-0576AE80503C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
   DTS:LocaleID="2057"
   DTS:ObjectName="Control"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{EC58001A-42C5-4E63-8B9A-D2505E8E014B}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{32232C0B-4DC1-4AF5-BC2D-756134244D3D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DAA92733-8456-41F4-AC18-7FA0EB4767AD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dteLogTime">
+      <DTS:VariableValue
+        DTS:DataType="7">1/15/2019 2:52:28 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76ABB47E-140A-4C0C-90DD-F2F10CEEA516}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="lngID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{202E5DEA-A0D8-4AA4-BE96-4EB104EF72A4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="objPackageList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2F1B101-A178-4A46-8206-A1C77D8C7672}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strPackageName">
+      <DTS:VariableValue
+        DTS:DataType="8">CID_AP.dtsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_FileList_Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6B8A9975-4D06-4A7C-8477-E6D980F3B104}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_FileList_Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\df_FileList_Load\olesrcPackageList"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="olesrcPackageList"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ID,Package FROM [dbo].[tbl_CID_MDB] WHERE NOT Copied IS  NULL AND Imported IS NULL AND EnabledImport=1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_FileList_Load\olesrcPackageList.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[Package]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].ExternalColumns[Package]"
+                      length="31"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[Package]"
+                      name="Package"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].ExternalColumns[Package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      name="Package" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[Package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[Package]"
+                      name="Package" />
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_FileList_Load\rstdstPackageList"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="rstdstPackageList">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::objPackageList</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\df_FileList_Load\rstdstPackageList.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_FileList_Load\rstdstPackageList.Inputs[Recordset Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\df_FileList_Load\rstdstPackageList.Inputs[Recordset Destination Input].Columns[Package]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="31"
+                      cachedName="Package"
+                      lineageId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output].Columns[Package]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_FileList_Load.Paths[OLE DB Source Output]"
+              endId="Package\df_FileList_Load\rstdstPackageList.Inputs[Recordset Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_FileList_Load\olesrcPackageList.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\exp_Logtime"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{D7532AAF-73B8-4C84-A17D-D050FF27CC38}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="exp_Logtime"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::dteLogTime] =  GETDATE()" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach_Import_Package"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{BB0FCA0C-AFAB-429D-916E-900B8C321E9F}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach_Import_Package">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{7632F08B-C65C-41AC-AB30-CE62937D18B5}"
+        DTS:ObjectName="{7632F08B-C65C-41AC-AB30-CE62937D18B5}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::objPackageList" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach_Import_Package\pkg_CID_Import"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{1F645164-2B5F-4B74-AB64-58B6D21DB251}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="pkg_CID_Import"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="PackageName">@[User::strPackageName]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>CID_AP.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach_Import_Package\sql_upd_Status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ee2dc9c2-a0b6-4486-8375-dbde77091ff2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="sql_upd_Status"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+              SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Imported = ? WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="User::dteLogTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="User::lngID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach_Import_Package.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B681571F-9930-4B8D-938B-3A675911072D}"
+          DTS:From="Package\Foreach_Import_Package\pkg_CID_Import"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach_Import_Package\sql_upd_Status" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E50A7E86-DE03-475F-B174-08B4AB80B9B7}"
+          DTS:ObjectName="{E50A7E86-DE03-475F-B174-08B4AB80B9B7}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::lngID" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{29F95653-DF1D-4BED-B677-9B413F626EE2}"
+          DTS:ObjectName="{29F95653-DF1D-4BED-B677-9B413F626EE2}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::strPackageName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\pkg_FileCopy"
       DTS:CreationName="Microsoft.ExecutePackageTask"
@@ -31,7 +376,34 @@
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
           <PackageName>FileCopy.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>dteDateLog</ParameterName>
+            <BindedVariableOrParameterName>User::dteLogTime</BindedVariableOrParameterName>
+          </ParameterAssignment>
         </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_Audit_RecCount"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1D993A80-EAD2-4F8C-81B2-82449037A818}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_Audit_RecCount"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[tbl_CID_MDB_Audit]&#xA;SELECT&#xA;      QUOTENAME(SCHEMA_NAME(sOBJ.schema_id)) + '.' + QUOTENAME(sOBJ.name) AS [TableName]&#xA;      , SUM(sPTN.Rows) AS [RowCount],  (? - 2) AS DateLogged&#xA;&#x9;  --, SUM(ddps.row_count)&#xA;&#x9;  , SUM(a.total_pages) * 8 AS TotalSpaceKB&#xA;&#x9;  , SUM(a.used_pages) * 8 AS UsedSpaceKB, (SUM(a.total_pages) - SUM(a.used_pages)) * 8 AS UnusedSpaceKB&#xA;FROM &#xA;      sys.objects AS sOBJ&#xA;      INNER JOIN sys.partitions AS sPTN&#xA;            ON sOBJ.object_id = sPTN.object_id&#xA;      INNER JOIN sys.allocation_units a ON sPTN.partition_id = a.container_id&#xA;&#x9;  INNER JOIN sys.dm_db_partition_stats ddps ON sOBJ.object_id = ddps.object_id &#xA;                                                   AND sPTN.partition_id = ddps.partition_id&#xA;WHERE&#xA;      sOBJ.type = 'U'&#xA;      AND sOBJ.is_ms_shipped = 0x0&#xA;      AND sPTN.index_id &lt; 2 -- 0:Heap, 1:Clustered&#xA;&#x9;  AND sPTN.index_id &lt;= 1&#xA;&#x9;  AND a.type=1&#xA;GROUP BY &#xA;      sOBJ.schema_id&#xA;      , sOBJ.name&#xA;&#x9;  , sOBJ.object_id&#xA;&#x9;  , sPTN.partition_id &#xA;ORDER BY [TableName];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="NewParameterName"
+            SQLTask:DtsVariableName="User::dteLogTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="4"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -47,7 +419,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
-          SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Copied = NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Copied = NULL WHERE EnabledImport=1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -57,9 +429,50 @@
       DTS:CreationName=""
       DTS:DTSID="{197549B7-1177-40BC-ABA2-6DF54309E51A}"
       DTS:From="Package\sql_Clear_Copy_Log"
-      DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\pkg_FileCopy" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8847945A-815D-48E7-AC9C-B764F9EFCF52}"
+      DTS:EvalOp="3"
+      DTS:Expression="!@[$Project::CheckPointRestart]"
+      DTS:From="Package\exp_Logtime"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\sql_Clear_Copy_Log" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{698F1092-CD32-4ECE-89F4-488DD8E40D95}"
+      DTS:From="Package\pkg_FileCopy"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\df_FileList_Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A962F6F4-C7DC-4601-A283-BAA2FBFDAB70}"
+      DTS:From="Package\df_FileList_Load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Foreach_Import_Package" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2FFA4A2D-7EC7-4057-8C94-0972A72A059F}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[$Project::CheckPointRestart]"
+      DTS:From="Package\exp_Logtime"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\pkg_FileCopy" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{5A5124D8-08AC-4A67-9642-03BF2D9FB8ED}"
+      DTS:From="Package\Foreach_Import_Package"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\sql_Audit_RecCount" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -72,29 +485,216 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\pkg_FileCopy"
-          TopLeft="189.999992450079,119.946667619917" />
+          Size="154.4,41.6"
+          Id="Package\df_FileList_Load"
+          TopLeft="237.499990562598,308.013335781204" />
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\sql_Clear_Copy_Log"
-          TopLeft="168.666659964456,35.360000281016" />
+          Size="150.4,41.6"
+          Id="Package\exp_Logtime"
+          TopLeft="237.387745066681,15.5621288211901" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Foreach_Import_Package\pkg_CID_Import"
+          TopLeft="66.1618928066463,16.3733364134895" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach_Import_Package\sql_upd_Status"
+          TopLeft="72.3999879995986,85.2800034052529" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="258.733326207267,76.960000281016">
+          Id="Package\Foreach_Import_Package.PrecedenceConstraints[Constraint]"
+          TopLeft="148.680940403122,57.9733364134895">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.9866673389013"
+              StartConnector="{x:Null}"
+              EndConnector="0,27.3066669917634"
               Start="0,0"
-              End="0,35.4866673389013">
+              End="0,19.8066669917634">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.4866673389013" />
+                    End="0,19.8066669917634" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="314.4,144.8"
+          Size="314.4,188"
+          Id="Package\Foreach_Import_Package"
+          TopLeft="157.333327081468,382.720003041585" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\pkg_FileCopy"
+          TopLeft="242.66665702396,224.640001785278" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\sql_Audit_RecCount"
+          TopLeft="228.333324260183,602.013336897002" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\sql_Clear_Copy_Log"
+          TopLeft="130.380947524457,114.25434253848" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="217.980947524457,155.85434253848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="73.4857094995026,68.7856592467979"
+              Start="0,0"
+              End="73.4857094995026,61.2856592467979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8128244864334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.8128244864334"
+                    Point2="0,40.8128244864334"
+                    Point3="4,40.8128244864334" />
+                  <mssgle:LineSegment
+                    End="69.4857094995026,40.8128244864334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.4857094995026,40.8128244864334"
+                    Point2="73.4857094995026,40.8128244864334"
+                    Point3="73.4857094995026,44.8128244864334" />
+                  <mssgle:LineSegment
+                    End="73.4857094995026,61.2856592467979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="288.854411733348,57.1621288211901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-70.8734642088906,57.0922137172901"
+              Start="0,0"
+              End="-70.8734642088906,49.5922137172901">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.197467889341" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.197467889341"
+                    Point2="0,23.197467889341"
+                    Point3="-4,23.197467889341" />
+                  <mssgle:LineSegment
+                    End="-66.8734642088906,23.197467889341" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-66.8734642088906,23.197467889341"
+                    Point2="-70.8734642088906,23.197467889341"
+                    Point3="-70.8734642088906,27.197467889341" />
+                  <mssgle:LineSegment
+                    End="-70.8734642088906,49.5922137172901" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.4367321044453,28.197467889341,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="314.283323793279,266.240001785278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41.7733339959258"
+              Start="0,0"
+              End="0,34.2733339959258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2733339959258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="314.616658822033,349.613335781204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33.1066672603811"
+              Start="0,0"
+              End="0,25.6066672603811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6066672603811" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="336.293867711987,57.1621288211901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,167.477872964088"
+              Start="0,0"
+              End="0,159.977872964088">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,159.977872964088" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,71.988936482044,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="314.833325670826,570.720003041585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,31.2933338554169"
+              Start="0,0"
+              End="0,23.7933338554169">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7933338554169" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -106,5 +706,65 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\df_FileList_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\df_FileList_Load\rstdstPackageList"
+          TopLeft="283.999988714855,192.74666819848" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\df_FileList_Load\olesrcPackageList"
+          TopLeft="235.999990622203,71.4133339008755" />
+        <EdgeLayout
+          Id="Package\df_FileList_Load.Paths[OLE DB Source Output]"
+          TopLeft="317.599990622203,113.013333900876">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="46.7999980926517,79.733334297604"
+              Start="0,0"
+              End="46.7999980926517,72.233334297604">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.866667148802" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.866667148802"
+                    Point2="0,39.866667148802"
+                    Point3="4,39.866667148802" />
+                  <mssgle:LineSegment
+                    End="42.7999980926517,39.866667148802" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.7999980926517,39.866667148802"
+                    Point2="46.7999980926517,39.866667148802"
+                    Point3="46.7999980926517,43.866667148802" />
+                  <mssgle:LineSegment
+                    End="46.7999980926517,72.233334297604" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_FileList_Load\olesrcPackageList">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

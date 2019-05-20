@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CID_Common"
+  DTS:DTSID="{93927129-750E-4678-9DFE-2B6E53393B08}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::CID_DEV_PATH]+ @[$Project::MDB_CID_COMMON]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=\\hq.river-island.com\ShareArea\IT\Shared\MOBA\CID_Test\DB\CID_COMMON.MDB;Provider=Microsoft.Jet.OLEDB.4.0;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

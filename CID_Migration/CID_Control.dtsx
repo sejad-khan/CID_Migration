@@ -1,0 +1,669 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 11:20:27 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WWICDLAP052"
+  DTS:CreatorName="HQ\itsk1"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{71918320-95D9-4D8C-9812-7CC5302127AA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="CID_Control"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{5F7C5595-EC3C-471F-BF3F-3EE63FC5B244}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_Import_Control"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{65ACD172-9A38-4AF6-ADA0-E5E2EC274CE7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_Import_Control"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\df_Import_Control\Destination - tbl_CID_Control"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tbl_CID_Control"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_CID_Control]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Control\Destination - tbl_CID_Control.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Control_ID]"
+                      cachedDataType="i4"
+                      cachedName="CID_Control_ID"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Control_ID]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Control_ID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Run_Date]"
+                      cachedDataType="date"
+                      cachedName="CID_Run_Date"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Run_Date]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Run_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Import_Date]"
+                      cachedDataType="date"
+                      cachedName="CID_Import_Date"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Import_Date]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Import_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Current_Debit_Note_No]"
+                      cachedDataType="i4"
+                      cachedName="CID_Current_Debit_Note_No"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Current_Debit_Note_No]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Current_Debit_Note_No]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Cloth_Discrepancy_Limit]"
+                      cachedDataType="r8"
+                      cachedName="CID_Cloth_Discrepancy_Limit"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Cloth_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Cloth_Discrepancy_Limit]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_CMT_Discrepancy_Limit]"
+                      cachedDataType="i4"
+                      cachedName="CID_CMT_Discrepancy_Limit"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_CMT_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_CMT_Discrepancy_Limit]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Made_Discrepancy_Limit]"
+                      cachedDataType="i4"
+                      cachedName="CID_Made_Discrepancy_Limit"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Made_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Made_Discrepancy_Limit]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Production_Month]"
+                      cachedDataType="i4"
+                      cachedName="CID_Production_Month"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Production_Month]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Production_Month]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Archive_Year]"
+                      cachedDataType="i4"
+                      cachedName="CID_Archive_Year"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Archive_Year]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Year]" />
+                    <inputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].Columns[CID_Archive_Month]"
+                      cachedDataType="i4"
+                      cachedName="CID_Archive_Month"
+                      externalMetadataColumnId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Archive_Month]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Month]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Control_ID]"
+                      dataType="i4"
+                      name="CID_Control_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Run_Date]"
+                      dataType="dbTimeStamp"
+                      name="CID_Run_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Import_Date]"
+                      dataType="dbTimeStamp"
+                      name="CID_Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Current_Debit_Note_No]"
+                      dataType="i4"
+                      name="CID_Current_Debit_Note_No" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Cloth_Discrepancy_Limit]"
+                      dataType="r8"
+                      name="CID_Cloth_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_CMT_Discrepancy_Limit]"
+                      dataType="i4"
+                      name="CID_CMT_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Made_Discrepancy_Limit]"
+                      dataType="i4"
+                      name="CID_Made_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Production_Month]"
+                      dataType="i4"
+                      name="CID_Production_Month" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Archive_Year]"
+                      dataType="i4"
+                      name="CID_Archive_Year" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input].ExternalColumns[CID_Archive_Month]"
+                      dataType="i4"
+                      name="CID_Archive_Month" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Control\Destination - tbl_CID_Control.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Destination - tbl_CID_Control.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Destination - tbl_CID_Control.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Destination - tbl_CID_Control.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Control\Source - tbl_CID_Control"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - tbl_CID_Control"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">tbl_CID_Control</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Control\Source - tbl_CID_Control.Connections[OleDbConnection]"
+                  connectionManagerID="{F3228C81-469F-40E4-BE68-F4242018DDE2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_Control]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Control_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Control_ID]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Control_ID]"
+                      name="CID_Control_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Run_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Run_Date]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Run_Date]"
+                      name="CID_Run_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Import_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Import_Date]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Import_Date]"
+                      name="CID_Import_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Current_Debit_Note_No]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Current_Debit_Note_No]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Current_Debit_Note_No]"
+                      name="CID_Current_Debit_Note_No"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Cloth_Discrepancy_Limit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Cloth_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Cloth_Discrepancy_Limit]"
+                      name="CID_Cloth_Discrepancy_Limit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_CMT_Discrepancy_Limit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_CMT_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_CMT_Discrepancy_Limit]"
+                      name="CID_CMT_Discrepancy_Limit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Made_Discrepancy_Limit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Made_Discrepancy_Limit]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Made_Discrepancy_Limit]"
+                      name="CID_Made_Discrepancy_Limit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Production_Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Production_Month]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Production_Month]"
+                      name="CID_Production_Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Archive_Year]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Year]"
+                      name="CID_Archive_Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Archive_Month]"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].Columns[CID_Archive_Month]"
+                      name="CID_Archive_Month"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Control_ID]"
+                      dataType="i4"
+                      name="CID_Control_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Run_Date]"
+                      dataType="date"
+                      name="CID_Run_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Import_Date]"
+                      dataType="date"
+                      name="CID_Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Current_Debit_Note_No]"
+                      dataType="i4"
+                      name="CID_Current_Debit_Note_No" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Cloth_Discrepancy_Limit]"
+                      dataType="r8"
+                      name="CID_Cloth_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_CMT_Discrepancy_Limit]"
+                      dataType="i4"
+                      name="CID_CMT_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Made_Discrepancy_Limit]"
+                      dataType="i4"
+                      name="CID_Made_Discrepancy_Limit" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Production_Month]"
+                      dataType="i4"
+                      name="CID_Production_Month" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Archive_Year]"
+                      dataType="i4"
+                      name="CID_Archive_Year" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output].ExternalColumns[CID_Archive_Month]"
+                      dataType="i4"
+                      name="CID_Archive_Month" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Control_ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Control_ID]"
+                      name="CID_Control_ID" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Run_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Run_Date]"
+                      name="CID_Run_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Import_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Import_Date]"
+                      name="CID_Import_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Current_Debit_Note_No]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Current_Debit_Note_No]"
+                      name="CID_Current_Debit_Note_No" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Cloth_Discrepancy_Limit]"
+                      dataType="r8"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Cloth_Discrepancy_Limit]"
+                      name="CID_Cloth_Discrepancy_Limit" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_CMT_Discrepancy_Limit]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_CMT_Discrepancy_Limit]"
+                      name="CID_CMT_Discrepancy_Limit" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Made_Discrepancy_Limit]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Made_Discrepancy_Limit]"
+                      name="CID_Made_Discrepancy_Limit" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Production_Month]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Production_Month]"
+                      name="CID_Production_Month" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Archive_Year]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Archive_Year]"
+                      name="CID_Archive_Year" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Archive_Month]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[CID_Archive_Month]"
+                      name="CID_Archive_Month" />
+                    <outputColumn
+                      refId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_Import_Control.Paths[OLE DB Source Output]"
+              endId="Package\df_Import_Control\Destination - tbl_CID_Control.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Control\Source - tbl_CID_Control.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_DELETE_SQL_Control"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{21CEC005-D48E-4656-96EE-2B41B085055C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_DELETE_SQL_Control"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[tbl_CID_Control];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D4327D0-DC01-4354-A850-2AEE38A8EC2C}"
+      DTS:From="Package\sql_DELETE_SQL_Control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\df_Import_Control" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\df_Import_Control"
+          TopLeft="191.89999332428,233.660000198364" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\sql_DELETE_SQL_Control"
+          TopLeft="158.833327240414,36.7000002479553" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="260.833327240414,78.3000002479553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.8666660838658,155.359999950409"
+              Start="0,0"
+              End="11.8666660838658,147.859999950409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.6799999752043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.6799999752043"
+                    Point2="0,77.6799999752043"
+                    Point3="4,77.6799999752043" />
+                  <mssgle:LineSegment
+                    End="7.86666608386582,77.6799999752043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.86666608386582,77.6799999752043"
+                    Point2="11.8666660838658,77.6799999752043"
+                    Point3="11.8666660838658,81.6799999752043" />
+                  <mssgle:LineSegment
+                    End="11.8666660838658,147.859999950409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\df_Import_Control">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\df_Import_Control\Source - tbl_CID_Control"
+          TopLeft="15.1,5.49999999999995" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\df_Import_Control\Destination - tbl_CID_Control"
+          TopLeft="5.50000000000001,107.1" />
+        <EdgeLayout
+          Id="Package\df_Import_Control.Paths[OLE DB Source Output]"
+          TopLeft="112.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_Import_Control\Destination - tbl_CID_Control">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_Import_Control\Source - tbl_CID_Control">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

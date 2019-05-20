@@ -7,6 +7,6 @@
     DTS:Name="ConnectionString">@[$Project::cnn_CID_SQL]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=WWICDLAP052;Initial Catalog=CID;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      DTS:ConnectionString="Data Source=RISPCIDD001V;Initial Catalog=CID;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}CID_SQL;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

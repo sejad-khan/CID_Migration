@@ -1,0 +1,462 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 11:27:30 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WWICDLAP052"
+  DTS:CreatorName="HQ\itsk1"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{CB95B6C1-BD8C-4D7C-9423-1EDE4CE66D3F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="CID_Logging"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{FBBEF60E-CBC4-4155-8C01-80762E5FFE07}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_Import_Logging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{C260B9FF-9775-438B-9E93-2F034304071B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_Import_Logging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\df_Import_Logging\Destination - tbl_Access_log"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tbl_Access_log"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_Access_log]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Logging\Destination - tbl_Access_log.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[id]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].Columns[process_date]"
+                      cachedDataType="date"
+                      cachedName="process_date"
+                      externalMetadataColumnId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[process_date]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[process_date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].Columns[Log_data]"
+                      cachedDataType="nText"
+                      cachedName="Log_data"
+                      externalMetadataColumnId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[Log_data]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[Log_data]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[process_date]"
+                      dataType="dbTimeStamp"
+                      name="process_date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input].ExternalColumns[Log_data]"
+                      dataType="nText"
+                      name="Log_data" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Logging\Destination - tbl_Access_log.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Logging\Destination - tbl_Access_log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Destination - tbl_Access_log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Logging\Destination - tbl_Access_log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Logging\Source - tbl_Access_log"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - tbl_Access_log"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">tbl_Access_log</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Logging\Source - tbl_Access_log.Connections[OleDbConnection]"
+                  connectionManagerID="{79CBB1B2-5979-4B24-A826-50005A5BB137}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_logging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[process_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[process_date]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[process_date]"
+                      name="process_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[Log_data]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[Log_data]"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].Columns[Log_data]"
+                      name="Log_data"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[process_date]"
+                      dataType="date"
+                      name="process_date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output].ExternalColumns[Log_data]"
+                      dataType="nText"
+                      name="Log_data" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[process_date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[process_date]"
+                      name="process_date" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[Log_data]"
+                      dataType="nText"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[Log_data]"
+                      name="Log_data" />
+                    <outputColumn
+                      refId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_Import_Logging.Paths[OLE DB Source Output]"
+              endId="Package\df_Import_Logging\Destination - tbl_Access_log.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Logging\Source - tbl_Access_log.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_DELETE_LOGGING"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3B00E409-06D5-4825-8CED-26771CF16175}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_DELETE_LOGGING"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[tbl_Access_log];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{F8287A64-A7AD-4D0A-AD5A-5A6FB6EA7CDB\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8287A64-A7AD-4D0A-AD5A-5A6FB6EA7CDB}"
+      DTS:From="Package\sql_DELETE_LOGGING"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{F8287A64-A7AD-4D0A-AD5A-5A6FB6EA7CDB}"
+      DTS:To="Package\df_Import_Logging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\df_Import_Logging"
+          TopLeft="137.899995470047,165.019999652862" />
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\sql_DELETE_LOGGING"
+          TopLeft="122.699995470047,63.4199996528623" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{F8287A64-A7AD-4D0A-AD5A-5A6FB6EA7CDB\}]"
+          TopLeft="219.499995470047,105.019999652862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\df_Import_Logging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\df_Import_Logging\Source - tbl_Access_log"
+          TopLeft="153.766661156549,33.233333553738" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\df_Import_Logging\Destination - tbl_Access_log"
+          TopLeft="144.166661156549,134.833333553738" />
+        <EdgeLayout
+          Id="Package\df_Import_Logging.Paths[OLE DB Source Output]"
+          TopLeft="248.966661156549,74.8333335537379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_Import_Logging\Destination - tbl_Access_log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\df_Import_Logging\Source - tbl_Access_log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2190 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 12:19:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WWICDLAP052"
+  DTS:CreatorName="HQ\itsk1"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{349E211B-FB2D-4C09-8974-82A822E99F3B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="CID_Trimmings"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{8AA4F28C-D95B-42DF-B0D0-6AF4409209E3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_Import_Trimmings"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{F222A71E-652E-400A-9369-99C3B61CCAB6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_Import_Trimmings"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tbl_Trim_Order_Detail_hold"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_Trim_Order_Detail_hold]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Detail_ID"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_ID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_ID"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Article_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Article_Number"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Article_Number]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Article_Number]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Item_Code]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Item_Code"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Item_Description]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Trim_Order_Item_Description"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Description]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Description]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Item_Size]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Item_Size"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Size]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Size]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Item_Colour]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Item_Colour"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Colour]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Colour]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_QTY]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Detail_QTY"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_QTY]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_QTY]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_Price_Qty]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Detail_Price_Qty"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Price_Qty]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Price_Qty]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_Value]"
+                      cachedDataType="r4"
+                      cachedName="Trim_Order_Detail_Value"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Value]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_Total_Value]"
+                      cachedDataType="r8"
+                      cachedName="Trim_Order_Detail_Total_Value"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Total_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Total_Value]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Detail_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_User]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].Columns[Trim_Order_Detail_Delivery_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Detail_Delivery_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Delivery_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Delivery_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_ID]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_ID]"
+                      dataType="i4"
+                      name="Trim_Order_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Article_Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Article_Number" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Code]"
+                      dataType="i4"
+                      name="Trim_Order_Item_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Description]"
+                      dataType="wstr"
+                      length="250"
+                      name="Trim_Order_Item_Description" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Size]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Item_Size" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Item_Colour]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Item_Colour" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_QTY]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Price_Qty]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_Price_Qty" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Value]"
+                      dataType="r4"
+                      name="Trim_Order_Detail_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Total_Value]"
+                      dataType="r8"
+                      name="Trim_Order_Detail_Total_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Detail_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Detail_Delivery_Date]"
+                      dataType="date"
+                      name="Trim_Order_Detail_Delivery_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 1 - tbl_trim_order_hold"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_trim_order_hold]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_ID"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Company_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Company_Code"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Company_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Company_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Supplier_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Trim_Supplier_Code"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Supplier_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Supplier_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Delivery_Supp_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Delivery_Supp_Code"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Delivery_Supp_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Delivery_Supp_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Number]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Number"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Number]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Number]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Department]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Department"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Department]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Department]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Company]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Trim_Order_Company"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Company]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Company]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_H_O]"
+                      cachedDataType="i2"
+                      cachedName="Trim_Order_H_O"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_H_O]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_H_O]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Trim_Type]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Trim_Type"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Trim_Type]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Trim_Type]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_QTY]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_QTY"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_QTY]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_QTY]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Value]"
+                      cachedDataType="r8"
+                      cachedName="Trim_Order_Value"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Value]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Currency_Code]"
+                      cachedDataType="r4"
+                      cachedName="Trim_Order_Currency_Code"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Currency_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Currency_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Delivery_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Delivery_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivery_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivery_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_RI_Ref]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_RI_Ref"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_RI_Ref]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_RI_Ref]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Activator_No]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Activator_No"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Activator_No]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Activator_No]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Season]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Season"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Season]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Season]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Garment_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Order_Garment_ID"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Garment_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Garment_ID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Payment_Terms_Key]"
+                      cachedDataType="i4"
+                      cachedName="Trim_Payment_Terms_Key"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Terms_Key]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms_Key]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Payment_Terms]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Payment_Terms"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Terms]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Payment_Period]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Payment_Period"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Period]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Period]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Comment]"
+                      cachedDataType="nText"
+                      cachedName="Trim_Order_Comment"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Comment]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Comment]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Complete]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Complete"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Complete]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Complete Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Complete Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Complete Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Hold]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Hold"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Hold]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Hold_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Hold_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Hold_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_User]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Input_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Input_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Input_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Input_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Authorised]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Authorised"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Authorised_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Authorised_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised_User]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Authorised_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Authorised_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Cancelled]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Cancelled"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Cancelled_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Cancelled_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled_User]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Cancelled_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Cancelled_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Carrage_Paid]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Carrage_Paid"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Carrage_Paid]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Carrage_Paid]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Delivered]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Delivered"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Delivered_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Delivered_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered_User]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Delivered_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Delivered_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_Date]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Email]"
+                      cachedDataType="bool"
+                      cachedName="Trim_Order_Email"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Email_User]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trim_Order_Email_User"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email_User]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_User]" />
+                    <inputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].Columns[Trim_Order_Email_Date]"
+                      cachedDataType="date"
+                      cachedName="Trim_Order_Email_Date"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_ID]"
+                      dataType="i4"
+                      name="Trim_Order_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Company_Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Company_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Supplier_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Trim_Supplier_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Delivery_Supp_Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Delivery_Supp_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Number]"
+                      dataType="i4"
+                      name="Trim_Order_Number" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Department]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Department" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Company]"
+                      dataType="wstr"
+                      length="3"
+                      name="Trim_Order_Company" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_H_O]"
+                      dataType="i2"
+                      name="Trim_Order_H_O" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Trim_Type]"
+                      dataType="i4"
+                      name="Trim_Order_Trim_Type" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_QTY]"
+                      dataType="i4"
+                      name="Trim_Order_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Value]"
+                      dataType="r8"
+                      name="Trim_Order_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Currency_Code]"
+                      dataType="r4"
+                      name="Trim_Order_Currency_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Date]"
+                      dataType="date"
+                      name="Trim_Order_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivery_Date]"
+                      dataType="date"
+                      name="Trim_Order_Delivery_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_RI_Ref]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_RI_Ref" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Activator_No]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Activator_No" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Season]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Season" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Garment_ID]"
+                      dataType="i4"
+                      name="Trim_Order_Garment_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Terms_Key]"
+                      dataType="i4"
+                      name="Trim_Payment_Terms_Key" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Terms]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Payment_Terms" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Payment_Period]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Payment_Period" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Comment]"
+                      dataType="nText"
+                      name="Trim_Order_Comment" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Complete]"
+                      dataType="bool"
+                      name="Trim_Order_Complete" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Complete Date]"
+                      dataType="date"
+                      name="Trim_Order_Complete Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Hold]"
+                      dataType="bool"
+                      name="Trim_Order_Hold" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Hold_Date]"
+                      dataType="date"
+                      name="Trim_Order_Hold_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Input_Date]"
+                      dataType="date"
+                      name="Trim_Order_Input_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised]"
+                      dataType="bool"
+                      name="Trim_Order_Authorised" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Authorised_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Authorised_Date]"
+                      dataType="date"
+                      name="Trim_Order_Authorised_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled]"
+                      dataType="bool"
+                      name="Trim_Order_Cancelled" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Cancelled_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Cancelled_Date]"
+                      dataType="date"
+                      name="Trim_Order_Cancelled_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Carrage_Paid]"
+                      dataType="bool"
+                      name="Trim_Order_Carrage_Paid" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered]"
+                      dataType="bool"
+                      name="Trim_Order_Delivered" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Delivered_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Delivered_Date]"
+                      dataType="date"
+                      name="Trim_Order_Delivered_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email]"
+                      dataType="bool"
+                      name="Trim_Order_Email" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Email_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input].ExternalColumns[Trim_Order_Email_Date]"
+                      dataType="date"
+                      name="Trim_Order_Email_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - tbl_Trim_Order_Detail_hold"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">tbl_Trim_Order_Detail_hold</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Connections[OleDbConnection]"
+                  connectionManagerID="{7762CAFD-332C-4441-8B34-D68EDC65138B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_Trimmings]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_ID]"
+                      name="Trim_Order_Detail_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]"
+                      name="Trim_Order_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Article_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Article_Number]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Article_Number]"
+                      name="Trim_Order_Article_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Code]"
+                      name="Trim_Order_Item_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Description]"
+                      length="250"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Description]"
+                      name="Trim_Order_Item_Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Size]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Size]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Size]"
+                      name="Trim_Order_Item_Size"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Colour]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Colour]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Item_Colour]"
+                      name="Trim_Order_Item_Colour"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_QTY]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_QTY]"
+                      name="Trim_Order_Detail_QTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Price_Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Price_Qty]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Price_Qty]"
+                      name="Trim_Order_Detail_Price_Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Value]"
+                      name="Trim_Order_Detail_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Total_Value]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Total_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Total_Value]"
+                      name="Trim_Order_Detail_Total_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_User]"
+                      name="Trim_Order_Detail_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Delivery_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Delivery_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Detail_Delivery_Date]"
+                      name="Trim_Order_Detail_Delivery_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_ID]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_ID]"
+                      dataType="i4"
+                      name="Trim_Order_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Article_Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Article_Number" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Code]"
+                      dataType="i4"
+                      name="Trim_Order_Item_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Description]"
+                      dataType="wstr"
+                      length="250"
+                      name="Trim_Order_Item_Description" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Size]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Item_Size" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Item_Colour]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Item_Colour" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_QTY]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Price_Qty]"
+                      dataType="i4"
+                      name="Trim_Order_Detail_Price_Qty" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Value]"
+                      dataType="r4"
+                      name="Trim_Order_Detail_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Total_Value]"
+                      dataType="r8"
+                      name="Trim_Order_Detail_Total_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Detail_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Detail_Delivery_Date]"
+                      dataType="date"
+                      name="Trim_Order_Detail_Delivery_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_ID]"
+                      name="Trim_Order_Detail_ID" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_ID]"
+                      name="Trim_Order_ID" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Article_Number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Article_Number]"
+                      name="Trim_Order_Article_Number" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Code]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Code]"
+                      name="Trim_Order_Item_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Description]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Description]"
+                      name="Trim_Order_Item_Description" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Size]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Size]"
+                      name="Trim_Order_Item_Size" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Colour]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Item_Colour]"
+                      name="Trim_Order_Item_Colour" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_QTY]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_QTY]"
+                      name="Trim_Order_Detail_QTY" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Price_Qty]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Price_Qty]"
+                      name="Trim_Order_Detail_Price_Qty" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Value]"
+                      dataType="r4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Value]"
+                      name="Trim_Order_Detail_Value" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Total_Value]"
+                      dataType="r8"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Total_Value]"
+                      name="Trim_Order_Detail_Total_Value" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_User]"
+                      name="Trim_Order_Detail_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Delivery_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Detail_Delivery_Date]"
+                      name="Trim_Order_Detail_Delivery_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source 1 - tbl_trim_order_hold"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">tbl_trim_order_hold</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Connections[OleDbConnection]"
+                  connectionManagerID="{7762CAFD-332C-4441-8B34-D68EDC65138B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_Trimmings]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_ID]"
+                      name="Trim_Order_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Company_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Company_Code]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Company_Code]"
+                      name="Trim_Company_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Supplier_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Supplier_Code]"
+                      length="10"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Supplier_Code]"
+                      name="Trim_Supplier_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Delivery_Supp_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Delivery_Supp_Code]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Delivery_Supp_Code]"
+                      name="Trim_Delivery_Supp_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Number]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Number]"
+                      name="Trim_Order_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Department]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Department]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Department]"
+                      name="Trim_Order_Department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Company]"
+                      length="3"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Company]"
+                      name="Trim_Order_Company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_H_O]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_H_O]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_H_O]"
+                      name="Trim_Order_H_O"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Trim_Type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Trim_Type]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Trim_Type]"
+                      name="Trim_Order_Trim_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_QTY]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_QTY]"
+                      name="Trim_Order_QTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Value]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Value]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Value]"
+                      name="Trim_Order_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Currency_Code]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Currency_Code]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Currency_Code]"
+                      name="Trim_Order_Currency_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Date]"
+                      name="Trim_Order_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivery_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivery_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivery_Date]"
+                      name="Trim_Order_Delivery_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_RI_Ref]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_RI_Ref]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_RI_Ref]"
+                      name="Trim_Order_RI_Ref"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Activator_No]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Activator_No]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Activator_No]"
+                      name="Trim_Order_Activator_No"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Season]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Season]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Season]"
+                      name="Trim_Order_Season"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Garment_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Garment_ID]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Garment_ID]"
+                      name="Trim_Order_Garment_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms_Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Terms_Key]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms_Key]"
+                      name="Trim_Payment_Terms_Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Terms]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Terms]"
+                      name="Trim_Payment_Terms"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Period]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Period]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Payment_Period]"
+                      name="Trim_Payment_Period"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Comment]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Comment]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Comment]"
+                      name="Trim_Order_Comment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Complete]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete]"
+                      name="Trim_Order_Complete"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Complete Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Complete Date]"
+                      name="Trim_Order_Complete Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Hold]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold]"
+                      name="Trim_Order_Hold"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Hold_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Hold_Date]"
+                      name="Trim_Order_Hold_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_User]"
+                      name="Trim_Order_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Input_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Input_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Input_Date]"
+                      name="Trim_Order_Input_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised]"
+                      name="Trim_Order_Authorised"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_User]"
+                      name="Trim_Order_Authorised_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Authorised_Date]"
+                      name="Trim_Order_Authorised_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled]"
+                      name="Trim_Order_Cancelled"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_User]"
+                      name="Trim_Order_Cancelled_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Cancelled_Date]"
+                      name="Trim_Order_Cancelled_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Carrage_Paid]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Carrage_Paid]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Carrage_Paid]"
+                      name="Trim_Order_Carrage_Paid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered]"
+                      name="Trim_Order_Delivered"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_User]"
+                      name="Trim_Order_Delivered_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Delivered_Date]"
+                      name="Trim_Order_Delivered_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email]"
+                      name="Trim_Order_Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_User]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email_User]"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_User]"
+                      name="Trim_Order_Email_User"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email_Date]"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].Columns[Trim_Order_Email_Date]"
+                      name="Trim_Order_Email_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_ID]"
+                      dataType="i4"
+                      name="Trim_Order_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Company_Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Company_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Supplier_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Trim_Supplier_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Delivery_Supp_Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Delivery_Supp_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Number]"
+                      dataType="i4"
+                      name="Trim_Order_Number" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Department]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Department" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Company]"
+                      dataType="wstr"
+                      length="3"
+                      name="Trim_Order_Company" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_H_O]"
+                      dataType="i2"
+                      name="Trim_Order_H_O" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Trim_Type]"
+                      dataType="i4"
+                      name="Trim_Order_Trim_Type" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_QTY]"
+                      dataType="i4"
+                      name="Trim_Order_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Value]"
+                      dataType="r8"
+                      name="Trim_Order_Value" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Currency_Code]"
+                      dataType="r4"
+                      name="Trim_Order_Currency_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Date]"
+                      dataType="date"
+                      name="Trim_Order_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivery_Date]"
+                      dataType="date"
+                      name="Trim_Order_Delivery_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_RI_Ref]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_RI_Ref" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Activator_No]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Activator_No" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Season]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Season" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Garment_ID]"
+                      dataType="i4"
+                      name="Trim_Order_Garment_ID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Terms_Key]"
+                      dataType="i4"
+                      name="Trim_Payment_Terms_Key" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Terms]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Payment_Terms" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Payment_Period]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Payment_Period" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Comment]"
+                      dataType="nText"
+                      name="Trim_Order_Comment" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Complete]"
+                      dataType="bool"
+                      name="Trim_Order_Complete" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Complete Date]"
+                      dataType="date"
+                      name="Trim_Order_Complete Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Hold]"
+                      dataType="bool"
+                      name="Trim_Order_Hold" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Hold_Date]"
+                      dataType="date"
+                      name="Trim_Order_Hold_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Input_Date]"
+                      dataType="date"
+                      name="Trim_Order_Input_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised]"
+                      dataType="bool"
+                      name="Trim_Order_Authorised" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Authorised_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Authorised_Date]"
+                      dataType="date"
+                      name="Trim_Order_Authorised_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled]"
+                      dataType="bool"
+                      name="Trim_Order_Cancelled" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Cancelled_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Cancelled_Date]"
+                      dataType="date"
+                      name="Trim_Order_Cancelled_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Carrage_Paid]"
+                      dataType="bool"
+                      name="Trim_Order_Carrage_Paid" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered]"
+                      dataType="bool"
+                      name="Trim_Order_Delivered" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Delivered_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Delivered_Date]"
+                      dataType="date"
+                      name="Trim_Order_Delivered_Date" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email]"
+                      dataType="bool"
+                      name="Trim_Order_Email" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email_User]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trim_Order_Email_User" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output].ExternalColumns[Trim_Order_Email_Date]"
+                      dataType="date"
+                      name="Trim_Order_Email_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_ID]"
+                      name="Trim_Order_ID" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Company_Code]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Company_Code]"
+                      name="Trim_Company_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Supplier_Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Supplier_Code]"
+                      name="Trim_Supplier_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Delivery_Supp_Code]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Delivery_Supp_Code]"
+                      name="Trim_Delivery_Supp_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Number]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Number]"
+                      name="Trim_Order_Number" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Department]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Department]"
+                      name="Trim_Order_Department" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Company]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Company]"
+                      name="Trim_Order_Company" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_H_O]"
+                      dataType="i2"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_H_O]"
+                      name="Trim_Order_H_O" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Trim_Type]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Trim_Type]"
+                      name="Trim_Order_Trim_Type" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_QTY]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_QTY]"
+                      name="Trim_Order_QTY" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Value]"
+                      dataType="r8"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Value]"
+                      name="Trim_Order_Value" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Currency_Code]"
+                      dataType="r4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Currency_Code]"
+                      name="Trim_Order_Currency_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Date]"
+                      name="Trim_Order_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivery_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivery_Date]"
+                      name="Trim_Order_Delivery_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_RI_Ref]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_RI_Ref]"
+                      name="Trim_Order_RI_Ref" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Activator_No]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Activator_No]"
+                      name="Trim_Order_Activator_No" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Season]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Season]"
+                      name="Trim_Order_Season" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Garment_ID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Garment_ID]"
+                      name="Trim_Order_Garment_ID" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Terms_Key]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Terms_Key]"
+                      name="Trim_Payment_Terms_Key" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Terms]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Terms]"
+                      name="Trim_Payment_Terms" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Period]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Payment_Period]"
+                      name="Trim_Payment_Period" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Comment]"
+                      dataType="nText"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Comment]"
+                      name="Trim_Order_Comment" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Complete]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Complete]"
+                      name="Trim_Order_Complete" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Complete Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Complete Date]"
+                      name="Trim_Order_Complete Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Hold]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Hold]"
+                      name="Trim_Order_Hold" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Hold_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Hold_Date]"
+                      name="Trim_Order_Hold_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_User]"
+                      name="Trim_Order_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Input_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Input_Date]"
+                      name="Trim_Order_Input_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised]"
+                      name="Trim_Order_Authorised" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised_User]"
+                      name="Trim_Order_Authorised_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Authorised_Date]"
+                      name="Trim_Order_Authorised_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled]"
+                      name="Trim_Order_Cancelled" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled_User]"
+                      name="Trim_Order_Cancelled_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Cancelled_Date]"
+                      name="Trim_Order_Cancelled_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Carrage_Paid]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Carrage_Paid]"
+                      name="Trim_Order_Carrage_Paid" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered]"
+                      name="Trim_Order_Delivered" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered_User]"
+                      name="Trim_Order_Delivered_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Delivered_Date]"
+                      name="Trim_Order_Delivered_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email]"
+                      dataType="bool"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email]"
+                      name="Trim_Order_Email" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email_User]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email_User]"
+                      name="Trim_Order_Email_User" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email_Date]"
+                      dataType="date"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[Trim_Order_Email_Date]"
+                      name="Trim_Order_Email_Date" />
+                    <outputColumn
+                      refId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_Import_Trimmings.Paths[OLE DB Source Output]"
+              endId="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\df_Import_Trimmings.Paths[OLE DB Source Output1]"
+              endId="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_DELETE_Trimmings"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3694876D-FA5B-40A4-A8F5-D8A8941F13A7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_DELETE_Trimmings"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[tbl_Trim_Order_Detail_hold];&#xA;DELETE FROM [dbo].[tbl_trim_order_hold];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{244583D7-F2DC-4768-BE7F-F6CF69F2BA6A}"
+      DTS:From="Package\sql_DELETE_Trimmings"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\df_Import_Trimmings" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\df_Import_Trimmings"
+          TopLeft="109.899996582667,175.419999735514" />
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\sql_DELETE_Trimmings"
+          TopLeft="100.833329545127,58.8866670909458" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="197.566663063897,100.486667090946">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.9333326445682"
+              Start="0,0"
+              End="0,67.4333326445682">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.4333326445682" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\df_Import_Trimmings">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\df_Import_Trimmings\Source 1 - tbl_trim_order_hold"
+          TopLeft="15.1,5.50000000000007" />
+        <NodeLayout
+          Size="248,41.6"
+          Id="Package\df_Import_Trimmings\Source - tbl_Trim_Order_Detail_hold"
+          TopLeft="313.3,5.50000000000007" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\df_Import_Trimmings\Destination 1 - tbl_trim_order_hold"
+          TopLeft="5.50000000000001,107.1" />
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\df_Import_Trimmings\Destination - tbl_Trim_Order_Detail_hold"
+          TopLeft="303.7,107.1" />
+        <EdgeLayout
+          Id="Package\df_Import_Trimmings.Paths[OLE DB Source Output1]"
+          TopLeft="124.3,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\df_Import_Trimmings.Paths[OLE DB Source Output]"
+          TopLeft="437.3,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

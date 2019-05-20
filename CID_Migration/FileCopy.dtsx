@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/7/2019 4:20:02 PM"
@@ -7,12 +7,12 @@
   DTS:CreatorName="HQ\itsk1"
   DTS:DTSID="{99F9C9DA-F17E-4B43-A4E0-6AF2468689F5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
   DTS:LocaleID="2057"
   DTS:ObjectName="FileCopy"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{0FC4DCEC-BDA4-4231-94A9-F64DB2BFD3AC}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{BAEFE0BF-537D-4846-9640-0BDF67BE6E46}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,17 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{4A663DE3-FE52-4E10-BFF1-C760C507A6EB}"
+      DTS:ObjectName="dteDateLog">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">1/15/2019 2:54:00 PM</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -121,7 +132,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ID,DB_NAME FROM dbo.tbl_CID_MDB WHERE Copied IS NULL</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ID,DB_NAME FROM dbo.tbl_CID_MDB WHERE Copied IS NULL AND EnabledImport=1</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -147,8 +158,8 @@
               <connections>
                 <connection
                   refId="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB.Connections[OleDbConnection]"
-                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:invalid"
-                  connectionManagerRefId="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:invalid"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -322,7 +333,13 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
-              SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Copied = GETDATE(), Imported = NULL WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE [dbo].[tbl_CID_MDB] SET Copied = ?, Imported = NULL WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="$Package::dteDateLog"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="NewParameterName"
                 SQLTask:DtsVariableName="User::intID"
@@ -418,36 +435,24 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="282.4,201.6"
-          Size="282.4,244.8"
+          PanelSize="276.8,172.8"
+          Size="276.8,216"
           Id="Package\Foreach CID MDB"
-          TopLeft="107.999995708466,133.120001057943" />
+          TopLeft="90.6666630638974,144.906667818282" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="223.866661077076,87.3600003636678">
+          TopLeft="226.466662070487,87.3600003636678">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.3333346313904,45.7600006942752"
+              EndConnector="0,57.5466674546139"
               Start="0,0"
-              End="25.3333346313904,38.2600006942752">
+              End="0,50.0466674546139">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.8800003471376" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.8800003471376"
-                    Point2="0,22.8800003471376"
-                    Point3="4,22.8800003471376" />
-                  <mssgle:LineSegment
-                    End="21.3333346313904,22.8800003471376" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21.3333346313904,22.8800003471376"
-                    Point2="25.3333346313904,22.8800003471376"
-                    Point3="25.3333346313904,26.8800003471376" />
-                  <mssgle:LineSegment
-                    End="25.3333346313904,38.2600006942752" />
+                    End="0,50.0466674546139" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -465,13 +470,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB"
-          TopLeft="144.66666091813,83.8933340000577" />
-        <NodeLayout
           Size="142.4,41.6"
           Id="Package\df_Load_MDB_List\rst_CID_MDB"
           TopLeft="185.999992609024,207.306668314192" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\df_Load_MDB_List\olesrc_tbl_CID_MDB"
+          TopLeft="144.66666091813,83.8933340000577" />
         <EdgeLayout
           Id="Package\df_Load_MDB_List.Paths[OLE DB Source Output]"
           TopLeft="232.26666091813,125.493334000058">

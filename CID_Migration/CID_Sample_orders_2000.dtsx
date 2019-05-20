@@ -1,0 +1,828 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 12:13:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WWICDLAP052"
+  DTS:CreatorName="HQ\itsk1"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{B57E9889-5958-4745-B7F2-1DC0F2B3EB67}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="CID_Sample_orders_2000"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{3D96865C-1C78-4B1D-97CB-7C84E40AFC82}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\df_Import_Sample_Orders_2000"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{A8117FA0-5889-407D-956F-18FCDA47340F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="df_Import_Sample_Orders_2000"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Switchboard Items"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Switchboard Items]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].Columns[SwitchboardID]"
+                      cachedDataType="i4"
+                      cachedName="SwitchboardID"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[SwitchboardID]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[SwitchboardID]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].Columns[ItemNumber]"
+                      cachedDataType="i2"
+                      cachedName="ItemNumber"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[ItemNumber]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemNumber]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].Columns[ItemText]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ItemText"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[ItemText]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemText]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].Columns[Command]"
+                      cachedDataType="i2"
+                      cachedName="Command"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[Command]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Command]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].Columns[Argument]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Argument"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[Argument]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Argument]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[SwitchboardID]"
+                      dataType="i4"
+                      name="SwitchboardID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[ItemNumber]"
+                      dataType="i2"
+                      name="ItemNumber" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[ItemText]"
+                      dataType="wstr"
+                      length="255"
+                      name="ItemText" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[Command]"
+                      dataType="i2"
+                      name="Command" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input].ExternalColumns[Argument]"
+                      dataType="wstr"
+                      length="255"
+                      name="Argument" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 1 - tbl_Cloth_Supplier_Redundant"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_Cloth_Supplier_Redundant]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Connections[OleDbConnection]"
+                  connectionManagerID="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].Columns[Cloth_Co_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Cloth_Co_Code"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Co_Code]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Co_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].Columns[Cloth_Supp_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Cloth_Supp_Code"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Supp_Code]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Code]" />
+                    <inputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].Columns[Cloth_Supp_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Cloth_Supp_Name"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Supp_Name]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Co_Code]"
+                      dataType="wstr"
+                      length="2"
+                      name="Cloth_Co_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Supp_Code]"
+                      dataType="wstr"
+                      length="5"
+                      name="Cloth_Supp_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input].ExternalColumns[Cloth_Supp_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cloth_Supp_Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Switchboard Items"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Switchboard Items</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Connections[OleDbConnection]"
+                  connectionManagerID="{0F8114D6-4E2F-419A-8C80-4BACE022D1FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_Sample_Orders_2000]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[SwitchboardID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[SwitchboardID]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[SwitchboardID]"
+                      name="SwitchboardID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemNumber]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[ItemNumber]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemNumber]"
+                      name="ItemNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemText]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[ItemText]"
+                      length="255"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[ItemText]"
+                      name="ItemText"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Command]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[Command]"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Command]"
+                      name="Command"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Argument]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[Argument]"
+                      length="255"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].Columns[Argument]"
+                      name="Argument"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[SwitchboardID]"
+                      dataType="i4"
+                      name="SwitchboardID" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[ItemNumber]"
+                      dataType="i2"
+                      name="ItemNumber" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[ItemText]"
+                      dataType="wstr"
+                      length="255"
+                      name="ItemText" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[Command]"
+                      dataType="i2"
+                      name="Command" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output].ExternalColumns[Argument]"
+                      dataType="wstr"
+                      length="255"
+                      name="Argument" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[SwitchboardID]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[SwitchboardID]"
+                      name="SwitchboardID" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ItemNumber]"
+                      dataType="i2"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ItemNumber]"
+                      name="ItemNumber" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ItemText]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ItemText]"
+                      name="ItemText" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[Command]"
+                      dataType="i2"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[Command]"
+                      name="Command" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[Argument]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[Argument]"
+                      name="Argument" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source 1 - tbl_Cloth_Supplier_Redundant"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">tbl_Cloth_Supplier_Redundant</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Connections[OleDbConnection]"
+                  connectionManagerID="{0F8114D6-4E2F-419A-8C80-4BACE022D1FF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CID_Sample_Orders_2000]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Co_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Co_Code]"
+                      length="2"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Co_Code]"
+                      name="Cloth_Co_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Supp_Code]"
+                      length="5"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Code]"
+                      name="Cloth_Supp_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Supp_Name]"
+                      length="50"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].Columns[Cloth_Supp_Name]"
+                      name="Cloth_Supp_Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Co_Code]"
+                      dataType="wstr"
+                      length="2"
+                      name="Cloth_Co_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Supp_Code]"
+                      dataType="wstr"
+                      length="5"
+                      name="Cloth_Supp_Code" />
+                    <externalMetadataColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output].ExternalColumns[Cloth_Supp_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cloth_Supp_Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Co_Code]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Co_Code]"
+                      name="Cloth_Co_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Supp_Code]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Supp_Code]"
+                      name="Cloth_Supp_Code" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Supp_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[Cloth_Supp_Name]"
+                      name="Cloth_Supp_Name" />
+                    <outputColumn
+                      refId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\df_Import_Sample_Orders_2000.Paths[OLE DB Source Output]"
+              endId="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\df_Import_Sample_Orders_2000.Paths[OLE DB Source Output1]"
+              endId="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sql_DELETE_Sample_Orders_2000"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{971F1FC6-71A5-407F-A6DA-9F0F9911B8F7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sql_DELETE_Sample_Orders_2000"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{75E6D05C-32C4-45A2-94D7-7C3A0A3A7DBE}"
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[Switchboard Items];&#xA;DELETE FROM [dbo].[tbl_Cloth_Supplier_Redundant];&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{79C9413A-EB31-45E2-A6D9-CB78255624C5\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{79C9413A-EB31-45E2-A6D9-CB78255624C5}"
+      DTS:From="Package\sql_DELETE_Sample_Orders_2000"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{79C9413A-EB31-45E2-A6D9-CB78255624C5}"
+      DTS:To="Package\df_Import_Sample_Orders_2000" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\df_Import_Sample_Orders_2000"
+          TopLeft="129.233329147763,212.86000003306" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\sql_DELETE_Sample_Orders_2000"
+          TopLeft="122.774069541178,94.3888887878701" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{79C9413A-EB31-45E2-A6D9-CB78255624C5\}]"
+          TopLeft="244.80369934447,135.98888878787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.8711112451902"
+              Start="0,0"
+              End="0,69.3711112451902">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.3711112451902" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\df_Import_Sample_Orders_2000">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="270.4,41.6"
+          Id="Package\df_Import_Sample_Orders_2000\Source 1 - tbl_Cloth_Supplier_Redundant"
+          TopLeft="15.1,5.49999999999995" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\df_Import_Sample_Orders_2000\Source - Switchboard Items"
+          TopLeft="365.5,5.49999999999995" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\df_Import_Sample_Orders_2000\Destination - Switchboard Items"
+          TopLeft="355.9,107.1" />
+        <NodeLayout
+          Size="289.6,41.6"
+          Id="Package\df_Import_Sample_Orders_2000\Destination 1 - tbl_Cloth_Supplier_Redundant"
+          TopLeft="5.5,107.1" />
+        <EdgeLayout
+          Id="Package\df_Import_Sample_Orders_2000.Paths[OLE DB Source Output1]"
+          TopLeft="150.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\df_Import_Sample_Orders_2000.Paths[OLE DB Source Output]"
+          TopLeft="468.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

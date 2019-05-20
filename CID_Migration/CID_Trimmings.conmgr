@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CID_Trimmings"
+  DTS:DTSID="{7762CAFD-332C-4441-8B34-D68EDC65138B}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::CID_DEV_PATH] +  @[$Project::MDB_Trimmings]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=\\hq.river-island.com\ShareArea\IT\Shared\MOBA\CID_Test\DB\trimmings.MDB;Provider=Microsoft.Jet.OLEDB.4.0;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

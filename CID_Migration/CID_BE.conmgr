@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="CID_BE_MDB"
+  DTS:ObjectName="CID_BE"
   DTS:DTSID="{115C3E0B-FAAC-4B41-9060-B4118D94E456}"
   DTS:CreationName="OLEDB">
   <DTS:PropertyExpression
